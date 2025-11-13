@@ -1,0 +1,70 @@
+{% extends 'page.html' %}
+{% load static %}
+{% block conteudo %}
+
+    <div class="container mt-4 perfil-container">
+    <h1 class="fw-bold mb-4">Perfil</h1>
+
+    <div class="row align-items-center mb-4">
+        <div class="col-md-3 text-center">
+            <div class="icone-perfil d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-person" style="font-size: 60px;"></i>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="info-box p-3 rounded-3 shadow-sm">
+                <p><strong>Informações:</strong></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Nome:</strong> {{ user.username }}</p>
+                        <p><strong>Curso:</strong> </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Matrícula:</strong> </p> {# Arrumar a matricula se for aluno #}
+                        <p><strong>E-mail:</strong> {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Atividades Extracurriculares -->
+    <div class="atividade-box p-4 rounded-3 shadow-sm mb-4">
+        <h4 class="fw-bold mb-3">Atividades Extracurriculares que você participa:</h4>
+
+        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">
+            <span>Robótica</span>
+            <span class="text-success fw-semibold">Situação: Ativa</span>
+        </div>
+
+        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">
+            <span>Xadrez</span>
+            <span class="text-warning fw-semibold">Situação: Inativa</span>
+        </div>
+
+        <div class="atividade-item d-flex justify-content-between align-items-center">
+            <span>Clube do Livro</span>
+            <span class="text-success fw-semibold">Situação: Ativa</span>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column flex-md-row gap-3">
+        <a href="#" class="btn btn-dark px-4 py-2 fw-semibold">Relatórios</a>
+        <a href="#" class="btn btn-dark px-4 py-2 fw-semibold">Histórico de Participação</a>
+    </div>
+        <div class="d-flex flex-column flex-md-row gap-3" style="margin-top: 25px">
+            <form method="POST" action="{% url 'logout' %}" style="margin-right: 30px;">  {% csrf_token %}
+                <button type="submit"
+                        class="btn btn-success"
+                        style="width: 160px; height: 40px; background-color: #f10303; border: #f10303 /* Altura explícita */"
+                        aria-label="Logout">
+                    <i class="fas fa-sign-in"></i>Sair
+                </button>
+            </form>
+        </div>
+
+</div>
+
+
+{% endblock conteudo %}

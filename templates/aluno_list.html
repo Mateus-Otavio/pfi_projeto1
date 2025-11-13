@@ -1,0 +1,44 @@
+{% extends 'page.html' %}
+{% block conteudo %}
+    <div class="content container mt-4">
+        <h2 class="section-title">
+            {{ form_titulo }}
+        </h2>
+        <div class="text-end">
+
+            <a class="btn btn-success" href="{% url 'novo_aluno' %}" style="background-color: #343a40; border: #343a40">Cadastrar <i class="bi bi-
+plus-circle"></i></a>
+
+        </div>
+        <table class="table table-striped" style="margin-top: 20px;">
+            <thead class='table'>
+
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Matricula</th>
+                <th>Curso</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for al in alunos %}
+                <tr>
+                    <td>{{ al.nome }}</td>
+                    <td>{{ al.email }}</td>
+                    <td>{{ al.matricula }}</td>
+                    <td>{{ al.curso }}</td>
+                    <td>
+                        <a href="{% url 'editar_aluno' al.pk %}" style="margin-left: 5px" >
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <a class="text-danger" href="{% url 'remover_aluno' al.pk %}" style="margin: 5px">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock conteudo %}

@@ -1,0 +1,38 @@
+{% extends 'page.html' %}
+{% load static %}
+{% block conteudo %}
+
+    <div class="container mt-4">
+
+        <h2 class="section-title">Alunos Participando</h2>
+        <h4>Atividade: <strong>{{ atividade.nome }}</strong></h4>
+            <div style="display: flex; flex-direction: row; justify-content: end;">
+                <a class="btn btn-success" href="{% url 'nova_participacao' %}"
+                   style="background-color: #343a40; border: #343a40">Cadastrar</a>
+            </div>
+
+        <div class="mt-4">
+
+            {% if alunos_participando %}
+                <ul class="list-group">
+                    {% for al in alunos_participando %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                            {{ al.fk_aluno.nome }} - {{ al.fk_aluno.matricula }} - {{ al.fk_aluno.curso }}
+                        </span>
+                            <span>
+                            Início: {{ al.data_inicio }}
+                        </span>
+                        <span>Carga Horária Semanal: {{ al.carga_horaria_semanal }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Nenhum aluno está participando desta atividade.</p>
+            {% endif %}
+
+        </div>
+
+</div>
+
+{% endblock conteudo %}

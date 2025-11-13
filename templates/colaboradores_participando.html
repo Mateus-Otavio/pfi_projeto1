@@ -1,0 +1,38 @@
+{% extends 'page.html' %}
+{% load static %}
+{% block conteudo %}
+
+    <div class="container mt-4">
+
+        <h2 class="section-title">Colaboradores Participando</h2>
+        <h4>Atividade: <strong>{{ atividade.nome }}</strong></h4>
+        <div style="display: flex; flex-direction: row; justify-content: end;">
+            <a class="btn btn-success" href="{% url 'novo_colaborador' %}"
+               style="background-color: #343a40; border: #343a40">Cadastrar</a>
+        </div>
+
+        <div class="mt-4">
+
+            {% if colaboradores_participando %}
+                <ul class="list-group">
+                    {% for al in colaboradores_participando %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                            {{ al.fk_docente.nome }} - {{ al.fk_docente.email }} - {{ al.fk_docente.formacao }}
+                        </span>
+                            <span>
+                            Início: {{ al.data_inicio }}
+                        </span>
+                        <span>Situação: {{ al.situacao }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Nenhum Colaborador está participando desta atividade.</p>
+            {% endif %}
+
+        </div>
+
+</div>
+
+{% endblock conteudo %}

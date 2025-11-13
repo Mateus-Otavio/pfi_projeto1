@@ -1,0 +1,46 @@
+{% extends 'page.html' %}
+{% block conteudo %}
+    <div class="content container mt-4">
+        <h2 class="section-title">
+            {{ form_titulo }}
+        </h2>
+        <div class="text-end">
+
+            <a class="btn btn-success" href="{% url 'novo_colaborador' %}" style="background-color: #343a40; border: #343a40">Cadastrar <i class="bi bi-
+plus-circle"></i></a>
+
+        </div>
+        <table class="table table-striped" style="margin-top: 20px;">
+            <thead class='table'>
+
+            <tr>
+                <th>Data de Inicio</th>
+                <th>Data de Termino</th>
+                <th>Situação</th>
+                <th>Atividade Extracurricular</th>
+                <th>Doscente</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for al in colaboradores %}
+                <tr>
+                    <td>{{ al.data_inicio }}</td>
+                    <td>{{ al.data_final }}</td>
+                    <td>{{ al.situacao}}</td>
+                    <td>{{ al.fk_atividade_extracurricular }}</td>
+                    <td>{{ al.fk_docente }}</td>
+                    <td>
+                        <a href="{% url 'editar_colaborador' al.pk %}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <a class="text-danger" href="{% url 'remover_colaborador' al.pk %}">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock conteudo %}

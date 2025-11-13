@@ -1,0 +1,42 @@
+{% extends 'page.html' %}
+{% block conteudo %}
+    <div class="content container mt-4">
+        <h2 class="text-center ">
+            {{ form_titulo }}
+        </h2>
+        <div class="text-end">
+
+            <a class="btn btn-success" href="{% url 'adicionar_imagens' %}">Cadastrar <i class="bi bi-
+plus-circle"></i></a>
+
+        </div>
+        <table>
+            <thead class='table'>
+
+            <tr>
+                <th>Descrição</th>
+                <th>Arquivo</th>
+                <th>Extensão</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for al in imagens %}
+                <tr>
+                    <td>{{ al.descricao }}</td>
+                    <td>{{ al.arquivo }}</td>
+                    <td>{{ al.extensao }}</td>
+                    <td>
+                        <a href="{% url 'editar_imagem' al.pk %}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <a class="text-danger" href="{% url 'remover_imagem' al.pk %}">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock conteudo %}

@@ -1,0 +1,46 @@
+<nav class="" style="background-color: #3c3b3b">
+    <ul class="menu__links">
+{#        <li>#}
+{#            <a class="menu_links" href="{% url 'atividade_extracurricular' %}">Home</a>#}
+{#        </li>#}
+        <li>
+            <a class="menu__links" href="{% url 'atividade_extracurricular' %}">Ativades Extracurriculares</a>
+        </li>
+        <li>
+            <a class="menu__links" href="{% url 'alunos' %}">Alunos</a>
+        </li>
+        <li>
+            <a class="menu__links" href="{% url 'aluno_participa' %}">Participação de alunos</a>
+        </li>
+        <li>
+            <a class="menu__links" href="{% url 'colaboradores' %}">Colaboradores</a>
+        </li>
+        <li>
+            <a class="menu__links" href="{% url 'imagens' %}">Imagens</a>
+        </li>
+        {# Parte do login e do logaut #}
+        <li style="display: flex; align-items: center; margin-left: auto;">
+            {% if user.is_authenticated %}
+                <a href="{% url 'exibir_perfil' %}" style="display: flex;justify-content: center; align-items: center  ;border-radius: 80%; margin-right: 20px; width: 16px; height: 4px;">
+                    <i class="bi bi-person" style="color: white; font-size: 20px"></i>
+                </a>
+{#                <form method="POST" action="{% url 'logout' %}" style="margin-right: 30px;">  {% csrf_token%}#}
+{#                    <button type="submit"#}
+{#                            class="btn btn-success"#}
+{#                            style="width: 160px; height: 40px; /* Altura explícita */"#}
+{#                            aria-label="Logout" >#}
+{#                        <i class="fas fa-sign-in"></i>Sair#}
+{#                    </button>#}
+{#                </form>#}
+            {% else %}
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-secondary"
+                   style="width: 80px; height: 40px; /* Mesma altura explícita */
+                          display: flex; padding: 0;margin-right: 20px;border-radius: 15px ;align-items: center; justify-content: center; text-decoration: none;"
+                   aria-label="Logar">
+                  <i class="fas fa-sign-in"></i>Entrar
+                </a>
+            {% endif %}
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,48 @@
+{% extends 'page.html' %}
+{% block conteudo %}
+    <div class="content container mt-4">
+
+            <h2 class="section-title">
+                Atividades Extracurriculares
+            </h2>
+        <div class="cadastrar-button-area">
+            <a class="btn btn-success" style="background-color: #343a40; border: #343a40" href="{% url 'nova_atividade' %}">Cadastrar <i class="bi bi-
+plus-circle"></i></a>
+        </div>
+
+{#        <div class="search-area text-end mb-4">#}
+{#            <input type="text" placeholder="Pesquisar" class="search-input">#}
+{#            <button class="search-button"><i class="bi bi-search"></i></button>#}
+{#        </div>#}
+
+        <div class="activities-list">
+            {% for al in atividade_extracurricular %}
+                <a href="{% url 'exibir_atividade' al.pk %}" class="activity-card">
+
+                    <div class="card-section card-name">
+                        <span class="activity-name">{{ al.nome }}</span>
+                    </div>
+
+                    <div class="card-section card-details-1">
+                        <p>
+                            <strong>Docente Responsável:</strong> <span
+                                class="detail-value">{{ al.docente }}</span>
+                        </p>
+                        <p>
+                            <strong>Data de Início:</strong> <span class="detail-value">{{ al.data_inicio }}</span>
+                        </p>
+                    </div>
+
+                    <div class="card-section card-details-2">
+                        <p>
+                            <strong>Situação:</strong> <span class="detail-value">{{ al.situacao }}</span>
+                        </p>
+                        <p>
+                            <strong>Tipo:</strong> <span class="detail-value">{{ al.tipo }}</span>
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock conteudo %}
