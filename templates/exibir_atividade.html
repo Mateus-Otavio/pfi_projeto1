@@ -28,15 +28,17 @@
     <section class="infos container mt-5 mb-5">
 
         <div class="cadastrar-button-area" style="display: flex; flex-direction: row; align-items: end;">
-            <a href="{% url 'listar_alunos_participando' atividade.pk %}" class="btn btn-dark mt-3" style="margin-left: 10px; margin-right: 10px;">
+            <a href="{% url 'listar_alunos_participando' atividade.pk %}" class="btn btn-dark mt-3" style="margin-left: 10px; margin-right: 10px; background-color: gray; border: gray">
                 Ver alunos participantes
             </a>
-            <a class="btn btn-dark mt-3" href="{% url 'listar_colaboradores_participando' atividade.pk %}" style="margin-left: 10px; margin-right: 10px;">
+            <a class="btn btn-dark mt-3" href="{% url 'listar_colaboradores_participando' atividade.pk %}" style="margin-left: 10px; margin-right: 10px; background-color: gray; border: gray">
                 Ver Colaboradores da Atividade
             </a>
-            <a class="btn btn-dark mt-3" href="{% url 'adicionar_imagens' %}" style="margin-left: 10px; margin-right: 10px;">
+            {% if user.is_authenticated %}
+            <a class="btn btn-dark mt-3" href="{% url 'adicionar_imagens' %}" style="margin-left: 10px; margin-right: 10px; background-color: gray; border: gray">
                 Adicionar imagens na Atividade
             </a>
+            {% endif %}
         </div>
 
         <h1 class="titulo_projeto">
@@ -52,15 +54,17 @@
             <h4><strong>Tipo:</strong> {{ atividade.tipo }}</h4>
             <h4><strong>Professor Responsável:</strong> {{ atividade.docente }}</h4>
             <h4><strong>Data de Inicio:</strong> {{ atividade.data_inicio }}</h4>
-            <div>
-                <a href="{% url 'editar_atividade' atividade.id %}" class="btn btn-sm btn-warning me-2">
-                    <i class="bi bi-pencil-fill"></i> Editar
-                </a>
-                <a href="{% url 'remover_atividade' atividade.id %}" class="btn btn-sm btn-danger">
-                    <i class="bi bi-trash"></i> Excluir
-                </a>
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'editar_atividade' atividade.id %}" class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pencil-fill"></i> Editar
+                    </a>
+                    <a href="{% url 'remover_atividade' atividade.id %}" class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i> Excluir
+                    </a>
 
-            </div>
+                </div>
+            {% endif %}
         </div>
     </section>
 

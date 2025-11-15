@@ -22,13 +22,14 @@ from site_pfi.views import (AlunosListView, AlunoCreateView, AlunoUpdateView,
                             AtividadeDeleteView, ImagensListView, ImagensCreateView, ImagensUpdateView,
                             ImagensDeleteView, AlunoParticipaListView, AlunoParticipaCreateView,
                             AlunoParticipaUpdateView, AlunoParticipaDeleteView, ColaboradoresListView,
-                            ColaboradoresCreateView, ColaboradoresUpdateView, ColaboradorsDeleteView, exibir_ativi, exibir_perfil)
+                            ColaboradoresCreateView, ColaboradoresUpdateView, ColaboradorsDeleteView, exibir_ativi, exibir_perfil, exibir_form)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', AtividadeListView.as_view(), name='atividade_extracurricular'),
     path('exibir_perfil/', views.exibir_perfil, name='exibir_perfil'),
     # path('', IndexTemplateView.as_view(),  name='home'),
+    path('aluno_form/', views.exibir_form, name='aluno_form'),
     path('exibir_ativi/<int:pk>', views.exibir_atividade, name='exibir_atividade'),
     path('atividade/<int:pk>/alunos/', views.listar_alunos_participando, name='listar_alunos_participando'),
     path('atividade/<int:pk>/colaboradores/', views.listar_colaboradores_participando, name='listar_colaboradores_participando'),
@@ -63,6 +64,7 @@ urlpatterns = [
     path('add_colaborador/', ColaboradoresCreateView.as_view(), name='novo_colaborador'),
     path('edit_colaborador<int:pk>', ColaboradoresUpdateView.as_view(), name='editar_colaborador'),
     path('remover_colaborador/<int:pk>', ColaboradorsDeleteView.as_view(), name='remover_colaborador'),
+
 ]
 
 

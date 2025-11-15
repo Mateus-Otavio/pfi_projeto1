@@ -6,27 +6,54 @@
 
         <h2 class="section-title">Alunos Participando</h2>
         <h4>Atividade: <strong>{{ atividade.nome }}</strong></h4>
+        {% if user.is_authenticated %}
             <div style="display: flex; flex-direction: row; justify-content: end;">
-                <a class="btn btn-success" href="{% url 'nova_participacao' %}"
-                   style="background-color: #343a40; border: #343a40">Cadastrar</a>
+                <a class="btn btn-success" href="{% url 'aluno_form' %}"
+                   style="background-color: gray; border: gray">Cadastrar</a>
             </div>
+        {% endif %}
 
         <div class="mt-4">
 
             {% if alunos_participando %}
-                <ul class="list-group">
+                <table class="table table-striped" style="margin-top: 20px;">
+                    <thead class='table'>
+
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Matricula</th>
+                        <th>Carga horaria semanal</th>
+                        <th>Data de Inicio</th>
+                        <th>Data de Termino</th>
+                        {% if user.is_authenticated %}
+                            <th>Ações</th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
                     {% for al in alunos_participando %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>
-                            {{ al.fk_aluno.nome }} - {{ al.fk_aluno.matricula }} - {{ al.fk_aluno.curso }}
-                        </span>
-                            <span>
-                            Início: {{ al.data_inicio }}
-                        </span>
-                        <span>Carga Horária Semanal: {{ al.carga_horaria_semanal }}</span>
-                        </li>
+                        <tr>
+                            <td>{{ al.fk_aluno }}</td>
+                            <td>{{ al.fk_aluno.matricula }}</td>
+                            <td>{{ al.carga_horaria_semanal }}</td>
+                            <td>{{ al.data_inicio }}</td>
+                            <td>{{ al.data_final }}</td>
+
+                            {% if user.is_authenticated %}
+                                <td>
+                                    <a href="{% url 'editar_paticipacao' al.pk %}" style="margin-left: 5px">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <a class="text-danger" href="{% url 'remover_participacao' al.pk %}"
+                                       style="margin-left: 5px">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            {% endif %}
+                        </tr>
                     {% endfor %}
-                </ul>
+                    </tbody>
+                </table>
             {% else %}
                 <p class="text-muted">Nenhum aluno está participando desta atividade.</p>
             {% endif %}

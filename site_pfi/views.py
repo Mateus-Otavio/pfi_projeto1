@@ -16,6 +16,9 @@ def exibir_ativi(request):
     return render(request, 'exibir_atividade.html')
 def exibir_perfil(request):
     return render(request, 'perfil.html')
+
+def exibir_form(request):
+    return render(request, 'formulario_aluno_participa.html')
 class AlunosListView(ListView):
     model = Aluno
     template_name = 'aluno_list.html'
@@ -110,7 +113,7 @@ class AlunoParticipaListView(ListView):
     template_name = 'aluno_participa_list.html'
     form_class = AlunoParticipaForms
     context_object_name = 'participa_aluno'
-    extra_context = {'form_titulo': 'Lista de Participação de Alunos'}
+    extra_context = {'form_titulo': 'Lista de Participação de todos os Alunos'}
 
 class AlunoParticipaCreateView(CreateView):
     form_class = AlunoParticipaForms
@@ -139,7 +142,7 @@ class ColaboradoresListView(ListView):
     template_name = 'colaboradores_list.html'
     form_class = ColaboradoresForm
     context_object_name = 'colaboradores'
-    extra_context = {'form_titulo': 'Lista de Colaboradores'}
+    extra_context = {'form_titulo': 'Lista de todos os Colaboradores'}
 
 class ColaboradoresCreateView(CreateView):
     form_class = ColaboradoresForm
@@ -187,3 +190,4 @@ def listar_colaboradores_participando(request, pk):
         'colaboradores_participando': colaboradores_participando
     }
     return render(request, 'colaboradores_participando.html', context=context)
+

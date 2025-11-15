@@ -14,14 +14,12 @@
 
         <div class="col-md-9">
             <div class="info-box p-3 rounded-3 shadow-sm">
-                <p><strong>Informações:</strong></p>
                 <div class="row">
                     <div class="col-md-6">
                         <p><strong>Nome:</strong> {{ user.username }}</p>
-                        <p><strong>Curso:</strong> </p>
+                        <p><strong>Formação: </strong> </p>
                     </div>
                     <div class="col-md-6">
-                        <p><strong>Matrícula:</strong> </p> {# Arrumar a matricula se for aluno #}
                         <p><strong>E-mail:</strong> {{ user.email }}</p>
                     </div>
                 </div>
@@ -29,7 +27,7 @@
         </div>
     </div>
 
-    <!-- Atividades Extracurriculares -->
+
     <div class="atividade-box p-4 rounded-3 shadow-sm mb-4">
         <h4 class="fw-bold mb-3">Atividades Extracurriculares que você participa:</h4>
 
@@ -50,8 +48,8 @@
     </div>
 
     <div class="d-flex flex-column flex-md-row gap-3">
-        <a href="#" class="btn btn-dark px-4 py-2 fw-semibold">Relatórios</a>
-        <a href="#" class="btn btn-dark px-4 py-2 fw-semibold">Histórico de Participação</a>
+        <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Relatórios</a>
+        <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Histórico de Participação</a>
     </div>
         <div class="d-flex flex-column flex-md-row gap-3" style="margin-top: 25px">
             <form method="POST" action="{% url 'logout' %}" style="margin-right: 30px;">  {% csrf_token %}

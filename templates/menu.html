@@ -6,18 +6,20 @@
         <li>
             <a class="menu__links" href="{% url 'atividade_extracurricular' %}">Ativades Extracurriculares</a>
         </li>
-        <li>
-            <a class="menu__links" href="{% url 'alunos' %}">Alunos</a>
-        </li>
-        <li>
-            <a class="menu__links" href="{% url 'aluno_participa' %}">Participação de alunos</a>
-        </li>
-        <li>
-            <a class="menu__links" href="{% url 'colaboradores' %}">Colaboradores</a>
-        </li>
-        <li>
-            <a class="menu__links" href="{% url 'imagens' %}">Imagens</a>
-        </li>
+        {% if user.is_authenticated %}
+            <li>
+                <a class="menu__links" href="{% url 'alunos' %}">Alunos</a>
+            </li>
+            <li>
+                <a class="menu__links" href="{% url 'aluno_participa' %}">Participação de alunos</a>
+            </li>
+            <li>
+                <a class="menu__links" href="{% url 'colaboradores' %}">Colaboradores</a>
+            </li>
+            <li>
+                <a class="menu__links" href="{% url 'imagens' %}">Imagens</a>
+            </li>
+        {% endif %}
         {# Parte do login e do logaut #}
         <li style="display: flex; align-items: center; margin-left: auto;">
             {% if user.is_authenticated %}

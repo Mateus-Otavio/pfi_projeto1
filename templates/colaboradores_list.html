@@ -6,7 +6,7 @@
         </h2>
         <div class="text-end">
 
-            <a class="btn btn-success" href="{% url 'novo_colaborador' %}" style="background-color: #343a40; border: #343a40">Cadastrar <i class="bi bi-
+            <a class="btn btn-success" href="{% url 'novo_colaborador' %}" style="background-color: gray; border: gray">Cadastrar <i class="bi bi-
 plus-circle"></i></a>
 
         </div>
@@ -14,22 +14,26 @@ plus-circle"></i></a>
             <thead class='table'>
 
             <tr>
+                <th>Doscente</th>
+                <th>Formação</th>
+                <th>E-mail</th>
                 <th>Data de Inicio</th>
                 <th>Data de Termino</th>
                 <th>Situação</th>
                 <th>Atividade Extracurricular</th>
-                <th>Doscente</th>
                 <th>Ações</th>
             </tr>
             </thead>
             <tbody>
             {% for al in colaboradores %}
                 <tr>
+                    <td>{{ al.fk_docente }}</td>
+                    <td>{{ al.fk_docente.formacao }}</td>
+                    <td>{{ al.fk_docente.email }}</td>
                     <td>{{ al.data_inicio }}</td>
                     <td>{{ al.data_final }}</td>
                     <td>{{ al.situacao}}</td>
                     <td>{{ al.fk_atividade_extracurricular }}</td>
-                    <td>{{ al.fk_docente }}</td>
                     <td>
                         <a href="{% url 'editar_colaborador' al.pk %}">
                             <i class="bi bi-pencil-fill"></i>

@@ -1,16 +1,16 @@
 {% extends 'page.html' %}
 {% block conteudo %}
     <div class="content container mt-4">
-        <h2 class="text-center ">
+        <h2 class="section-title " >
             {{ form_titulo }}
         </h2>
         <div class="text-end">
 
-            <a class="btn btn-success" href="{% url 'adicionar_imagens' %}">Cadastrar <i class="bi bi-
+            <a class="btn btn-success" href="{% url 'adicionar_imagens' %}" style="background-color: gray; border: gray">Cadastrar <i class="bi bi-
 plus-circle"></i></a>
 
         </div>
-        <table>
+        <table class="table table-striped">
             <thead class='table'>
 
             <tr>

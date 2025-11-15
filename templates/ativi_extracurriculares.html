@@ -5,9 +5,13 @@
             <h2 class="section-title">
                 Atividades Extracurriculares
             </h2>
+
         <div class="cadastrar-button-area">
-            <a class="btn btn-success" style="background-color: #343a40; border: #343a40" href="{% url 'nova_atividade' %}">Cadastrar <i class="bi bi-
+            {% if user.is_authenticated %}
+                <a class="btn btn-success" style="background-color: gray; border: gray"
+                   href="{% url 'nova_atividade' %}">Cadastrar <i class="bi bi-
 plus-circle"></i></a>
+            {% endif %}
         </div>
 
 {#        <div class="search-area text-end mb-4">#}

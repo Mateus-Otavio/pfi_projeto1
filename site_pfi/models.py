@@ -48,3 +48,9 @@ class Imagens(models.Model):
     arquivo = models.ImageField()#Usar file ou binario
     extensao = models.CharField(max_length=10)
     fk_atividade_extracurricular = models.ForeignKey('AtividadeExtracurricular', on_delete=models.DO_NOTHING)
+
+class Solicitacao(models.Model):
+    data_solicitacao = models.DateField()
+    situacao = models.BooleanField(default=False)
+    fk_aluno = models.ForeignKey('Aluno', on_delete=models.DO_NOTHING)
+    fk_atividade_extracurricular = models.ForeignKey('AtividadeExtracurricular', on_delete=models.DO_NOTHING)
