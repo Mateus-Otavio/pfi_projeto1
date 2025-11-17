@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p><strong>Nome:</strong> {{ user.username }}</p>
-                        <p><strong>Formação: </strong> </p>
+                        <p><strong>Formação:</strong> {{ user.docente.formacao }}  </p>
                     </div>
                     <div class="col-md-6">
                         <p><strong>E-mail:</strong> {{ user.email }}</p>
@@ -51,11 +51,11 @@
         <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Relatórios</a>
         <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Histórico de Participação</a>
     </div>
-        <div class="d-flex flex-column flex-md-row gap-3" style="margin-top: 25px">
+        <div class="d-flex flex-column flex-md-row gap-3" style="margin-top: 25px;display: flex; flex-direction: row;justify-content: end">
             <form method="POST" action="{% url 'logout' %}" style="margin-right: 30px;">  {% csrf_token %}
                 <button type="submit"
                         class="btn btn-success"
-                        style="width: 160px; height: 40px; background-color: #f10303; border: #f10303 /* Altura explícita */"
+                        style="width: 160px; height: 40px; background-color: #f10303; border: #f10303 ;/* Altura explícita */"
                         aria-label="Logout">
                     <i class="fas fa-sign-in"></i>Sair
                 </button>

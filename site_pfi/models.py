@@ -29,10 +29,20 @@ class AtividadeExtracurricular(models.Model):
     def __str__(self):
         return self.nome
 
-class Docente(User): #Continuar, comecei a usar o User
+# class Docente(User): #Continuar, comecei a usar o User
+#     nome = models.CharField(max_length=50)
+#     #email = models.EmailField(max_length=80)
+#     formacao = models.CharField(max_length=80)
+#     def __str__(self):
+#         return self.nome
+class Docente(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=50)
-    #email = models.EmailField(max_length=80)
     formacao = models.CharField(max_length=80)
+
+    def email(self):
+        return self.user.email
+
     def __str__(self):
         return self.nome
 

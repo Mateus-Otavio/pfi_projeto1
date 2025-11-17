@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'pfi_projeto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'beyondclass',
+        'USER': 'postgres',
+        'PASSWORD': 'dec26022008#',
+        'HOST': 'localhost',  # ou o endereço do seu banco de dados
+        'PORT': '5432',       # porta padrão do PostgreSQL
     }
 }
 

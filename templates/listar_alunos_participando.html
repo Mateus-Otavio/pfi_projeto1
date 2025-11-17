@@ -8,7 +8,7 @@
         <h4>Atividade: <strong>{{ atividade.nome }}</strong></h4>
         {% if user.is_authenticated %}
             <div style="display: flex; flex-direction: row; justify-content: end;">
-                <a class="btn btn-success" href="{% url 'aluno_form' %}"
+                <a class="btn btn-success" href="{% url 'nova_participacao' %}"
                    style="background-color: gray; border: gray">Cadastrar</a>
             </div>
         {% endif %}
