@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from site_pfi.models import Aluno, AlunoParticipa, AtividadeExtracurricular, Docente, Colaboradores, Imagens
+from site_pfi.models import Aluno, AlunoParticipa, AtividadeExtracurricular, Docente, Colaboradores, Imagens, Curso
 
 @admin.register(Aluno)
 class AlunoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'matricula', 'curso')
+    list_display = ('id', 'nome', 'matricula', 'fk_curso')
     ordering = 'nome',
 
 @admin.register(AlunoParticipa)
@@ -30,4 +30,9 @@ class ColaboradoresAdmin(admin.ModelAdmin):
 @admin.register(Imagens)
 class ImagensAdmin(admin.ModelAdmin):
     list_display = ('id', 'descricao', 'arquivo', 'extensao', 'fk_atividade_extracurricular')
+    ordering = 'id',
+
+@admin.register(Curso)
+class CusoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome', 'codigo', 'descricao')
     ordering = 'id',

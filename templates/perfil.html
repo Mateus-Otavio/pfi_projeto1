@@ -28,29 +28,25 @@
     </div>
 
 
-    <div class="atividade-box p-4 rounded-3 shadow-sm mb-4">
-        <h4 class="fw-bold mb-3">Atividades Extracurriculares que você participa:</h4>
+{#    <div class="atividade-box p-4 rounded-3 shadow-sm mb-4">#}
+{#        <h4 class="fw-bold mb-3">Atividades Extracurriculares que você participa:</h4>#}
+{##}
+{#        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">#}
+{#            <span>Robótica</span>#}
+{#            <span class="text-success fw-semibold">Situação: Ativa</span>#}
+{#        </div>#}
+{##}
+{#        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">#}
+{#            <span>Xadrez</span>#}
+{#            <span class="text-warning fw-semibold">Situação: Inativa</span>#}
+{#        </div>#}
+{##}
+{#        <div class="atividade-item d-flex justify-content-between align-items-center">#}
+{#            <span>Clube do Livro</span>#}
+{#            <span class="text-success fw-semibold">Situação: Ativa</span>#}
+{#        </div>#}
+{#    </div>#}
 
-        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">
-            <span>Robótica</span>
-            <span class="text-success fw-semibold">Situação: Ativa</span>
-        </div>
-
-        <div class="atividade-item d-flex justify-content-between align-items-center mb-2">
-            <span>Xadrez</span>
-            <span class="text-warning fw-semibold">Situação: Inativa</span>
-        </div>
-
-        <div class="atividade-item d-flex justify-content-between align-items-center">
-            <span>Clube do Livro</span>
-            <span class="text-success fw-semibold">Situação: Ativa</span>
-        </div>
-    </div>
-
-    <div class="d-flex flex-column flex-md-row gap-3">
-        <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Relatórios</a>
-        <a href="" class="btn btn-dark px-4 py-2 fw-semibold">Histórico de Participação</a>
-    </div>
         <div class="d-flex flex-column flex-md-row gap-3" style="margin-top: 25px;display: flex; flex-direction: row;justify-content: end">
             <form method="POST" action="{% url 'logout' %}" style="margin-right: 30px;">  {% csrf_token %}
                 <button type="submit"

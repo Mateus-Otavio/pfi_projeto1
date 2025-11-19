@@ -22,7 +22,8 @@ from site_pfi.views import (AlunosListView, AlunoCreateView, AlunoUpdateView,
                             AtividadeDeleteView, ImagensListView, ImagensCreateView, ImagensUpdateView,
                             ImagensDeleteView, AlunoParticipaListView, AlunoParticipaCreateView,
                             AlunoParticipaUpdateView, AlunoParticipaDeleteView, ColaboradoresListView,
-                            ColaboradoresCreateView, ColaboradoresUpdateView, ColaboradorsDeleteView, exibir_ativi, exibir_perfil, exibir_form)
+                            ColaboradoresCreateView, ColaboradoresUpdateView, ColaboradoresDeleteView, exibir_ativi,
+                            exibir_perfil, exibir_form, CursoListView, CursoCreateView, CursoUpdateView, CursoDeleteView,)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -63,7 +64,13 @@ urlpatterns = [
     path('colaboradores/', ColaboradoresListView.as_view(), name='colaboradores'),
     path('add_colaborador/', ColaboradoresCreateView.as_view(), name='novo_colaborador'),
     path('edit_colaborador<int:pk>', ColaboradoresUpdateView.as_view(), name='editar_colaborador'),
-    path('remover_colaborador/<int:pk>', ColaboradorsDeleteView.as_view(), name='remover_colaborador'),
+    path('remover_colaborador/<int:pk>', ColaboradoresDeleteView.as_view(), name='remover_colaborador'),
+
+#Parte dos cusos
+    path('cursos/', CursoListView.as_view(), name='cursos'),
+    path('add_curso/', CursoCreateView.as_view(), name='novo_curso'),
+    path('edit_curso/<int:pk>/', CursoUpdateView.as_view(), name='editar_curso'),
+    path('remover_curso/<int:pk>/', CursoDeleteView.as_view(), name='remover_curso'),
 
 ]
 

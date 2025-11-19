@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from site_pfi.models import Aluno, AtividadeExtracurricular, Imagens, AlunoParticipa, Colaboradores
-from site_pfi.forms import AlunoForms, AtividadeForms, ImagensForms, AlunoParticipaForms, ColaboradoresForm
+from site_pfi.models import Aluno, AtividadeExtracurricular, Imagens, AlunoParticipa, Colaboradores, Curso
+from site_pfi.forms import AlunoForms, AtividadeForms, ImagensForms, AlunoParticipaForms, ColaboradoresForm, CursoForm
 
 
 # def pagina_inicial(request):
@@ -157,12 +157,40 @@ class ColaboradoresUpdateView(UpdateView):
     extra_context = {'form_titulo': 'Editar cadastro de Colaborador'}
     success_url = reverse_lazy('colaboradores')
 
-class ColaboradorsDeleteView(DeleteView):
+class ColaboradoresDeleteView(DeleteView):
     model = Colaboradores
     template_name = 'excluir_registro.html'
     success_url = reverse_lazy('colaboradores')
     context_object_name = 'registro'
     extra_context = {'form_titulo': 'Deletar cadastro de colaborador'}
+
+#Parte dos cursos
+class CursoListView(ListView):
+    model = Curso
+    template_name = 'curso_list.html'
+    form_class = CursoForm
+    context_object_name = 'cursos'
+    extra_context = {'form_titulo': 'Lista de todos os Cursos'}
+
+class CursoCreateView(CreateView):
+    form_class = CursoForm
+    template_name = 'formulario.html'
+    extra_context = {'form_titulo': 'Cadastro de Cursos'}
+    success_url = reverse_lazy('cursos')
+
+class CursoUpdateView(UpdateView):
+    model = Curso
+    form_class = CursoForm
+    template_name = 'formulario.html'
+    extra_context = {'form_titulo': 'Editar Curso'}
+    success_url = reverse_lazy('cursos')
+
+class CursoDeleteView(DeleteView):
+    model = Curso
+    template_name = 'excluir_registro.html'
+    success_url = reverse_lazy('cursos')
+    context_object_name = 'registro'
+    extra_context = {'form_titulo': 'Deletar Curso'}
 
 def exibir_atividade(request, pk):
     atividade = AtividadeExtracurricular.objects.get(pk=pk)

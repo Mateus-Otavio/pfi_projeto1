@@ -1,7 +1,12 @@
-<nav class="" style="background-color: #3c3b3b">
+{% load static %}
+
+<nav class="" style="background-color: #0077B6">
     <ul class="menu__links">
 {#        <li>#}
 {#            <a class="menu_links" href="{% url 'atividade_extracurricular' %}">Home</a>#}
+{#        </li>#}
+{#        <li>#}
+{#            <a class="menu__links" style="padding: 0; border: 1px solid white"><img src="{% static 'logo.png' %}" style="height: 70px; width: 100px"></a>#}
 {#        </li>#}
         <li>
             <a class="menu__links" href="{% url 'atividade_extracurricular' %}">Atividades Extracurriculares</a>
@@ -9,6 +14,9 @@
         {% if user.is_authenticated %}
             <li>
                 <a class="menu__links" href="{% url 'alunos' %}">Alunos</a>
+            </li>
+            <li>
+                <a class="menu__links" href="{% url 'cursos' %}">Cursos</a>
             </li>
             <li>
                 <a class="menu__links" href="{% url 'aluno_participa' %}">Participação de alunos</a>

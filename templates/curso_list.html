@@ -6,7 +6,7 @@
         </h2>
         <div class="text-end">
 
-            <a class="btn btn-success" href="{% url 'novo_aluno' %}" style="background-color: gray; border: gray">Cadastrar <i class="bi bi-
+            <a class="btn btn-success" href="{% url 'novo_curso' %}" style="background-color: gray; border: gray">Cadastrar <i class="bi bi-
 plus-circle"></i></a>
 
         </div>
@@ -15,24 +15,21 @@ plus-circle"></i></a>
 
             <tr>
                 <th>Nome</th>
-                <th>Email</th>
-                <th>Matricula</th>
-                <th>Curso</th>
-                <th>Ações</th>
+                <th>Código</th>
+                <th>Descrição</th>
             </tr>
             </thead>
             <tbody>
-            {% for al in alunos %}
+            {% for al in cursos %}
                 <tr>
                     <td>{{ al.nome }}</td>
-                    <td>{{ al.email }}</td>
-                    <td>{{ al.matricula }}</td>
-                    <td>{{ al.fk_curso }}</td>
+                    <td>{{ al.codigo }}</td>
+                    <td>{{ al.descricao }}</td>
                     <td>
-                        <a href="{% url 'editar_aluno' al.pk %}" style="margin-left: 5px" >
+                        <a href="{% url 'editar_curso' al.pk %}" style="margin-left: 5px" >
                             <i class="bi bi-pencil-fill"></i>
                         </a>
-                        <a class="text-danger" href="{% url 'remover_aluno' al.pk %}" style="margin: 5px">
+                        <a class="text-danger" href="{% url 'remover_curso' al.pk %}" style="margin: 5px">
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>

@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 class Aluno(models.Model):
     nome = models.CharField(max_length=50)
     email = models.EmailField(max_length=80)
-    matricula = models.CharField(max_length=30)
-    curso = models.CharField(max_length=30)
+    matricula = models.CharField(max_length=30, unique=True)
+    fk_curso = models.ForeignKey('Curso',on_delete=models.SET_NULL, null=True, blank=True )
     def __str__(self):
         return self.nome
 
 class AlunoParticipa(models.Model):
     data_inicio = models.DateField()
-    data_final = models.DateField(blank=True, null=True) #Estava dando erro, ver como deixar o campo não obrigatório
+    data_final = models.DateField(blank=True, null=True) #Talvez colocar valor default
     carga_horaria_semanal = models.IntegerField()
     fk_atividade_extracurricualar = models.ForeignKey('AtividadeExtracurricular', on_delete=models.DO_NOTHING)
     fk_aluno = models.ForeignKey('Aluno', on_delete=models.DO_NOTHING)
@@ -58,6 +58,14 @@ class Imagens(models.Model):
     arquivo = models.ImageField()#Usar file ou binario
     extensao = models.CharField(max_length=10)
     fk_atividade_extracurricular = models.ForeignKey('AtividadeExtracurricular', on_delete=models.DO_NOTHING)
+
+class Curso(models.Model):
+    nome = models.CharField(max_length=100, unique=True)
+    codigo = models.CharField(max_length=60, unique=True, blank=True, null=True)
+    descricao = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.nome
 
 class Solicitacao(models.Model):
     data_solicitacao = models.DateField()
