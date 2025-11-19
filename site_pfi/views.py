@@ -28,14 +28,14 @@ class AlunosListView(ListView):
 class AlunoCreateView(CreateView):
     form_class = AlunoForms
     template_name = 'formulario.html' #Qual pagina ele vai carregar
-    extra_context = {'form_titulo' : 'Cadastro Aluno'}
+    extra_context = {'form_titulo' : 'Cadastro de Aluno'}
     success_url = reverse_lazy('alunos') #Quando der sucesso volta para a pagina de alunos
 
 class AlunoUpdateView(UpdateView):
     model = Aluno
     form_class = AlunoForms
     template_name = 'formulario.html'
-    extra_context = {'form_titulo' : 'Editar Aluno'}
+    extra_context = {'form_titulo' : 'Editar informações do Aluno'}
     success_url = reverse_lazy('alunos')
 
 class AlunoDeleteView(DeleteView):
@@ -175,7 +175,7 @@ class CursoListView(ListView):
 class CursoCreateView(CreateView):
     form_class = CursoForm
     template_name = 'formulario.html'
-    extra_context = {'form_titulo': 'Cadastro de Cursos'}
+    extra_context = {'form_titulo': 'Cadastro de Curso'}
     success_url = reverse_lazy('cursos')
 
 class CursoUpdateView(UpdateView):

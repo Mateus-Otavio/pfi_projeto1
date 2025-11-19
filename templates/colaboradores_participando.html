@@ -39,10 +39,10 @@
 
                             {% if user.is_authenticated %}
                                 <td>
-                                    <a href="{% url 'editar_paticipacao' al.pk %}" style="margin-left: 5px">
+                                    <a href="{% url 'editar_colaborador' al.pk %}" style="margin-left: 5px">
                                         <i class="bi bi-pencil-fill"></i>
                                     </a>
-                                    <a class="text-danger" href="{% url 'remover_participacao' al.pk %}"
+                                    <a class="text-danger" href="{% url 'remover_colaborador' al.pk %}"
                                        style="margin-left: 5px">
                                         <i class="bi bi-trash"></i>
                                     </a>
