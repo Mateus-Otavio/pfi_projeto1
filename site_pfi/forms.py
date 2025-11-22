@@ -43,27 +43,32 @@ class AtividadeForms(forms.ModelForm):
                 attrs=  # A ordem dos campos pode seer facilmente mudada pela ordem dos atributos no models
                 {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                  'placeholder': 'Informe o nome da atividade extracurricular',
+                 'autocomplete': 'off',
                  "title": "Atividade name"}),
             'descricao': forms.Textarea(attrs=
                                          {'class': 'form-group form-control',
                                           'placeholder': 'Descrição da atividade extracurricular',
+                                          'autocomplete': 'off',
                                           "title": "Descricao",
                                           'rows': 6}),
             'tipo': forms.Select(attrs=
                                       {'class': 'form-group form-select',  # Aplicando formatação pronas do bootstrap
                                        'placeholder': 'Informe o tipo da atividade extracurricular',
+                                       'autocomplete': 'off',
                                        "title": "Tipo da atividade"},
                                      choices=[('Pesquisa', 'Pesquisa'),
                                               ('Extenção', 'Extenção')]
                                      ),
             'situacao': forms.Select(attrs={'class': 'form-group form-select',  # Aplicando formatação pronas do bootstrap
                                        'placeholder': 'Informe a situação da atividade extracurricular',
+                                        'autocomplete': 'off',
                                        "title": "Situação da atividade"},
                                      choices=[('Ativo', 'Ativo'),
                                               ('Inativo', 'Inativo')]),
             'data_inicio': forms.DateInput(attrs=
                                           {'class': 'form-group form-control',
                                            'type': 'date',
+                                           'autocomplete': 'off',
                                            # Aplicando formatação pronas do bootstrap
                                            'placeholder': 'Informe a data de inicios da atividade',
                                            "title": "Data inicio"}
@@ -71,6 +76,7 @@ class AtividadeForms(forms.ModelForm):
             'data_termino': forms.DateInput(attrs=
                                    {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                                     'placeholder': 'Informe a data de termino da atividade',
+                                    'autocomplete': 'off',
                                     'type': 'date',
                                     "title": "Data termino"})
 
@@ -91,14 +97,17 @@ class ImagensForms(forms.ModelForm):
                 attrs=  # A ordem dos campos pode seer facilmente mudada pela ordem dos atributos no models
                 {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                  'placeholder': 'Informe a descrição da imagem',
+                 'autocomplete': 'off',
                  "title": "Imagem name"}),
 
             'arquivo': forms.FileInput(attrs=
                                      {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
+                                      'autocomplete': 'off',
                                       "title": "Arquivo da imagem"}),
             'extensao': forms.Select(attrs=
                                       {'class': 'form-group form-select',  # Aplicando formatação pronas do bootstrap
                                        'placeholder': 'Informe o tipo da atividade extracurricular',
+                                       'autocomplete': 'off',
                                        "title": "Tipo da atividade"},
                                       choices=[('.png', '.png'),
                                               ('.jpg', '.jpg'),
@@ -118,16 +127,19 @@ class AlunoParticipaForms(forms.ModelForm):
             'data_inicio': forms.DateInput(attrs= #A ordem dos campos pode seer facilmente mudada pela ordem dos atributos no models
                               {'class': 'form-group form-control', #Aplicando formatação pronas do bootstrap
                                'placeholder': 'Informe a data do inicio da participação',
+                               'autocomplete': 'off',
                                'type': 'date',
                                "title":"Data de Inicio"}),
             'data_final': forms.DateInput(attrs=
                                     {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                                      'placeholder': 'Informe do término da participação ',
+                                     'autocomplete': 'off',
                                      'type': 'date',
                                      "title": "Data de Término"}),
             'carga_horaria_semanal': forms.NumberInput(attrs=
                                      {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                                       'placeholder': 'Informe a carga horária da participação',
+                                      'autocomplete': 'off',
                                       "title": "Carga Horária"}),
         }
 
@@ -148,16 +160,19 @@ class ColaboradoresForm(forms.ModelForm):
             'data_inicio': forms.DateInput(attrs= #A ordem dos campos pode seer facilmente mudada pela ordem dos atributos no models
                               {'class': 'form-group form-control', #Aplicando formatação pronas do bootstrap
                                'placeholder': 'Informe a data do inicio da participação',
+                               'autocomplete': 'off',
                                'type': 'date',
                                "title":"Data de Inicio"}),
             'data_final': forms.DateInput(attrs=
                                     {'class': 'form-group form-control',  # Aplicando formatação pronas do bootstrap
                                      'placeholder': 'Informe do término da participação',
+                                     'autocomplete': 'off',
                                      'type': 'date',
                                      "title": "Data de Término"}),
             'situacao': forms.Select(attrs=
                                      {'class': 'form-group form-select',  # Aplicando formatação pronas do bootstrap
                                       'placeholder': 'Informe o tipo da atividade extracurricular',
+                                      'autocomplete': 'off',
                                       "title": "Tipo da atividade"},
                                      choices=[('Ativo', 'Ativo'),
                                               ('Inativo', 'Inativo')])
