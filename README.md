@@ -1,4 +1,3 @@
-
 Manual de Instalação e Utilização do Software
 
 Este manual descreve o processo de instalação do sistema web BeyondClass, uma plataforma web desenvolvida em Python utilizando o framework Django, e o guia para sua utilização básica. O objetivo é fornecer as instruções necessárias para configurar o ambiente de desenvolvimento e executar a aplicação, além de detalhar as principais funcionalidades disponíveis para os usuários Docentes e Administradores.
@@ -40,8 +39,9 @@ Caso esteja usando o PyCharm com alguma licença jetbrains torna-se mais interes
 
 Passo 3: Instalar as Dependências do Projeto
 
-Com o ambiente virtual ativo, instale todas as bibliotecas Python necessárias com o pillow por meio do terminal.
+Com o ambiente virtual ativo, instale todas as bibliotecas Python necessárias por meio do terminal.
  pip install django pillow
+ pip install django-widget-tweaks
 
 
 Passo 4: Configurar o Banco de Dados
