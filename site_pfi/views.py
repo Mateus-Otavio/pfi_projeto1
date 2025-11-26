@@ -193,10 +193,12 @@ class CursoDeleteView(DeleteView):
     extra_context = {'form_titulo': 'Deletar Curso'}
 
 def exibir_atividade(request, pk):
+    print("entrou na atividade")
     atividade = AtividadeExtracurricular.objects.get(pk=pk)
     imagens = Imagens.objects.filter(fk_atividade_extracurricular=pk)
 
     context = {'atividade': atividade, 'imagens': imagens}
+
     return render(request,'exibir_atividade.html', context=context)
 
 def listar_alunos_participando(request, pk):
