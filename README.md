@@ -39,9 +39,8 @@ Caso esteja usando o PyCharm com alguma licença jetbrains torna-se mais interes
 
 Passo 3: Instalar as Dependências do Projeto
 
-Com o ambiente virtual ativo, instale todas as bibliotecas Python necessárias por meio do terminal.
- pip install django pillow
- pip install django-widget-tweaks
+Com o ambiente virtual ativo, instale todas as bibliotecas Python necessárias por meio do terminal com o comando.
+ pip install -r requirements.txt
 
 
 Passo 4: Configurar o Banco de Dados
