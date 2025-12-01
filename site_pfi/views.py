@@ -65,9 +65,6 @@ class AtividadeUpdateView(UpdateView):
     template_name = 'formulario.html'
     extra_context = {'form_titulo': 'Editar Atividade Extracurricular'}
     def get_success_url(self):
-        # Usa 'reverse' para gerar a URL
-        # 'exibir_atividade' é o nome da sua rota: name='exibir_atividade'
-        # self.object.pk obtém o PK da atividade que acabou de ser atualizada
         return reverse('exibir_atividade', kwargs={'pk': self.object.pk}) # o metodo reverse possibilita que eu passe argumentos para a url
 
 class AtividadeDeleteView(DeleteView):
